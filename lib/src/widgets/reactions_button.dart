@@ -62,27 +62,12 @@ class ReactionImageButton extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.fromLTRB(4.0, 4.0, 6.0, 4.0),
           child: Center(
-            child: Container(
-              width: 30,
-              height: 30,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(50),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(0.2),
-                    spreadRadius: 1,
-                    blurRadius: 3,
-                    offset: const Offset(0, 1),
-                  ),
-                ],
-              ),
-              child: const Icon(
-                Icons.add,
-                size: 25,
-                color: Colors.grey,
-              ),
-            ),
+            child: Image.asset(
+              'assets/plus_icon.png', // path to your asset
+              width: 24,             // you can set custom size
+              height: 24,
+              fit: BoxFit.contain,
+            )
           ),
         ),
       ),
