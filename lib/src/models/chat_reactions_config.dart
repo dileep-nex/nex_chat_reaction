@@ -1,6 +1,6 @@
 import 'package:emoji_picker_flutter/emoji_picker_flutter.dart';
 import 'package:flutter/material.dart';
-import 'package:nex_chat_reaction/flutter_chat_reactions.dart';
+import 'package:nex_chat_reaction/nex_chat_reaction.dart';
 
 class ChatReactionsConfig {
   final List<String> availableReactions;

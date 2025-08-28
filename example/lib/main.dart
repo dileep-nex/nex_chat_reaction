@@ -3,7 +3,7 @@ import 'package:example/widgets/bottom_chat_field.dart';
 import 'package:example/widgets/contact_info.dart';
 import 'package:example/widgets/message_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:nex_chat_reaction/flutter_chat_reactions.dart';
+import 'package:nex_chat_reaction/nex_chat_reaction.dart';
 
 void main() {
   runApp(const MyApp());

@@ -1,6 +1,6 @@
 import 'package:example/models/message.dart';
 import 'package:flutter/material.dart';
-import 'package:nex_chat_reaction/flutter_chat_reactions.dart';
+import 'package:nex_chat_reaction/nex_chat_reaction.dart';
 
 class MessageWidget extends StatelessWidget {
   const MessageWidget({

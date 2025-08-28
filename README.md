@@ -29,7 +29,7 @@ dependencies:
 In your dart file, import the library:
 
 ```dart
-import 'package:flutter_chat_reactions/flutter_chat_reactions.dart';
+import 'package:flutter_chat_reactions/nex_chat_reaction.dart';
 ```
 
 ## Usage
