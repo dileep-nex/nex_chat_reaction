@@ -21,9 +21,20 @@ Need a simple and powerful way to add customizable message reactions to your Flu
 
 Add dependency to `pubspec.yaml`
 
+
+
 ```yaml
 dependencies:
   flutter_chat_reactions: ^0.0.1
+
+  assets:
+    - assets/reaction_chat/
+```
+
+```nex_chat_reaction
+     assets -- folder
+       reaction_chat -- folder
+          plus_icon.png -- image name
 ```
 
 In your dart file, import the library:
