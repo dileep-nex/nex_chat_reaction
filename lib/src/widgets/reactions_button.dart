@@ -63,9 +63,9 @@ class ReactionImageButton extends StatelessWidget {
           padding: const EdgeInsets.fromLTRB(4.0, 4.0, 6.0, 4.0),
           child: Center(
             child: Image.asset(
-              'assets/plus_icon.png', // path to your asset
-              width: 24,             // you can set custom size
-              height: 24,
+              'assets/images/plus_icon.png',// path to your asset
+              width: 30,             // you can set custom size
+              height: 30,
               fit: BoxFit.contain,
             )
           ),
