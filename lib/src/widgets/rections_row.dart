@@ -38,6 +38,11 @@ class ReactionsRow extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               for (var i = 0; i < reactions.length; i++)
+                i == reactions.length-1 ? ReactionImageButton(
+                  reaction: reactions[i],
+                  index: i,
+                  onTap: onReactionTap,
+                ):
                 ReactionButton(
                   reaction: reactions[i],
                   index: i,

@@ -27,7 +27,62 @@ class ReactionButton extends StatelessWidget {
           padding: const EdgeInsets.fromLTRB(4.0, 2.0, 4.0, 2.0),
           child: Text(
             reaction,
-            style: const TextStyle(fontSize: 22),
+            style: const TextStyle(
+                color: Colors.white,
+                fontSize: 22),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+
+class ReactionImageButton extends StatelessWidget {
+  /// Creates a reaction button widget.
+  const ReactionImageButton({
+    super.key,
+    required this.reaction,
+    required this.index,
+    required this.onTap,
+  });
+
+  final String reaction;
+  final int index;
+  final Function(String, int) onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return FadeInLeft(
+      from: (index * 20).toDouble(),
+      duration: const Duration(milliseconds: 500),
+      delay: const Duration(milliseconds: 200),
+      child: InkWell(
+        onTap: () => onTap(reaction, index),
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(4.0, 4.0, 6.0, 4.0),
+          child: Center(
+            child: Container(
+              width: 30,
+              height: 30,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(50),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.2),
+                    spreadRadius: 1,
+                    blurRadius: 3,
+                    offset: const Offset(0, 1),
+                  ),
+                ],
+              ),
+              child: const Icon(
+                Icons.add,
+                size: 25,
+                color: Colors.grey,
+              ),
+            ),
           ),
         ),
       ),
