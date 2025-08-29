@@ -17,7 +17,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Chat Reactions Example',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        brightness: Brightness.dark,
+        primarySwatch: Colors.blue,
         useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,
