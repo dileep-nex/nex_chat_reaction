@@ -63,7 +63,9 @@ class ReactionImageButton extends StatelessWidget {
           padding: const EdgeInsets.fromLTRB(4.0, 4.0, 6.0, 4.0),
           child: Center(
             child: Image.asset(
-              'assets/reaction_chat/plus_icon.png',// path to your asset
+              Theme.of(context).brightness == Brightness.dark?
+              'assets/reaction_chat/plus_icon_dark.png'
+              :"assets/reaction_chat/plus_icon.png",// path to your asset
               width: 30,             // you can set custom size
               height: 30,
               fit: BoxFit.contain,

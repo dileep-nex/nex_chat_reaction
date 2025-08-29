@@ -117,7 +117,7 @@ class ContextMenuWidget extends StatelessWidget {
         width: MediaQuery.of(context).size.width * menuWidth,
         decoration: BoxDecoration(
           color: Theme.of(context).brightness == Brightness.dark
-              ? const Color(0xFF2E2E2E)
+              ? const Color(0x0B0B0BE5)
               : const Color(0xFFFFFFFF),
           borderRadius: BorderRadius.circular(15),
         ),
