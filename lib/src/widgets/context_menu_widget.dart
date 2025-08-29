@@ -122,17 +122,17 @@ class ContextMenuWidget extends StatelessWidget {
           borderRadius: BorderRadius.circular(15),
         ),
         child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: menuItems
-              .map(
-                (item) => Material(
+          children: menuItems.map((item) {
+            final isLast = menuItems.indexOf(item) == menuItems.length - 1;
+            return Column(
+              children: [
+                Material(
                   color: Colors.transparent,
                   child: InkWell(
                     onTap: () => onMenuItemTap(item, menuItems.indexOf(item)),
                     borderRadius: BorderRadius.circular(15),
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 15, vertical: 10),
+                      padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -141,10 +141,9 @@ class ContextMenuWidget extends StatelessWidget {
                             style: TextStyle(
                               color: item.isDestructive
                                   ? Colors.red
-                                  : Theme.of(context).brightness ==
-                                          Brightness.dark
-                                      ? Colors.white
-                                      : Colors.black,
+                                  : Theme.of(context).brightness == Brightness.dark
+                                  ? Colors.white
+                                  : Colors.black,
                               fontSize: 16,
                             ),
                           ),
@@ -152,10 +151,9 @@ class ContextMenuWidget extends StatelessWidget {
                             item.icon,
                             color: item.isDestructive
                                 ? Colors.red
-                                : Theme.of(context).brightness ==
-                                        Brightness.dark
-                                    ? Colors.white
-                                    : Colors.black,
+                                : Theme.of(context).brightness == Brightness.dark
+                                ? Colors.white
+                                : Colors.black,
                             size: 20,
                           ),
                         ],
@@ -163,9 +161,11 @@ class ContextMenuWidget extends StatelessWidget {
                     ),
                   ),
                 ),
-              )
-              .toList(),
-        ),
+                if (!isLast) const Divider(height: 1, thickness: 1), // Divider between buttons
+              ],
+            );
+          }).toList(),
+        )
       ),
     );
   }
