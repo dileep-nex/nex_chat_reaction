@@ -19,11 +19,13 @@ class ReactionsRow extends StatelessWidget {
     return Align(
       alignment: alignment,
       child: Material(
-         color: Theme.of(context).colorScheme.surface,
+         color: Colors.transparent,
         child: Container(
           padding: const EdgeInsets.all(5),
           decoration: BoxDecoration(
-             color: Theme.of(context).colorScheme.surface,
+             color: Theme.of(context).brightness == Brightness.dark
+                 ? const Color(0xFF000000)
+                 : const Color(0xFFFFFFFF),
             borderRadius: BorderRadius.circular(20),
             boxShadow: [
               BoxShadow(
