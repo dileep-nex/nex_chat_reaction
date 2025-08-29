@@ -2,3 +2,11 @@
 
 * TODO: Describe initial release.
   update plus icon
+
+## 0.0.2
+* TODO: Added Separator between MenuItems
+  update plus icon
+
+
+## 0.0.3
+* TODO: Theme update and plus icon dark added
