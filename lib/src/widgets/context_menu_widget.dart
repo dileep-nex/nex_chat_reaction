@@ -161,7 +161,9 @@ class ContextMenuWidget extends StatelessWidget {
                     ),
                   ),
                 ),
-                if (!isLast) const Divider(height: 1, thickness: 1), // Divider between buttons
+                if (!isLast) const Divider(height: 1, thickness: 1,
+                  color: Colors.grey,
+                ), // Divider between buttons
               ],
             );
           }).toList(),
