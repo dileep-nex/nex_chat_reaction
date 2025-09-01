@@ -120,6 +120,12 @@ class ContextMenuWidget extends StatelessWidget {
               ? const Color(0xFF000000)
               : const Color(0xFFFFFFFF),
           borderRadius: BorderRadius.circular(15),
+          border: Border.all(
+            color: Theme.of(context).brightness == Brightness.dark
+                ? Colors.grey.shade700
+                : Colors.white,
+            width: 1,
+          ),
         ),
         child: Column(
           children: menuItems.map((item) {

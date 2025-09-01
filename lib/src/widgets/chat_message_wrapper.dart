@@ -14,6 +14,8 @@ class ChatMessageWrapper extends StatelessWidget {
   final Function(String)? onReactionAdded;
   final Function(String)? onReactionRemoved;
   final Function(MenuItem)? onMenuItemTapped;
+  final VoidCallback? onPopupOpened;
+  final VoidCallback? onPopupClosed;
   final Alignment alignment;
 
   const ChatMessageWrapper({
@@ -26,6 +28,9 @@ class ChatMessageWrapper extends StatelessWidget {
     this.onReactionRemoved,
     this.onMenuItemTapped,
     this.alignment = Alignment.centerRight,
+    this.onPopupOpened,
+    this.onPopupClosed
+
   });
 
   void _handleReactionTap(BuildContext context, String reaction) {
@@ -73,6 +78,7 @@ class ChatMessageWrapper extends StatelessWidget {
   }
 
   void _showReactionsDialog(BuildContext context) {
+    onPopupOpened?.call(); // 🔥 notify popup opened
     Navigator.of(context).push(
       HeroDialogRoute(
         builder: (context) => ReactionsDialogWidget(
@@ -85,7 +91,7 @@ class ChatMessageWrapper extends StatelessWidget {
           alignment: alignment,
         ),
       ),
-    );
+    ).then((value) =>  onPopupClosed?.call(),);// 🔥 notify popup closed
   }
 
   @override

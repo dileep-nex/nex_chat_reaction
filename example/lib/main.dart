@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Chat Reactions Example',
       theme: ThemeData(
-        brightness: Brightness.light,
+        brightness: Brightness.dark,
         primarySwatch: Colors.blue,
         useMaterial3: true,
       ),
@@ -98,6 +98,12 @@ class _ChatScreenState extends State<ChatScreen> {
                       messageId: message.id,
                       controller: _controller,
                       config: config,
+                      onPopupOpened: () {
+                        print("✅ Reaction popup opened");
+                      },
+                      onPopupClosed: () {
+                        print("❌ Reaction popup closed");
+                      },
                       onReactionAdded: (reaction) {
                         _addReactionToMessage(
                           message: message,
