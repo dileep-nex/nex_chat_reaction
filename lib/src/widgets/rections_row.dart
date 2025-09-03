@@ -30,10 +30,10 @@ class ReactionsRow extends StatelessWidget {
              color: dialogBackgroundColor,
             borderRadius: BorderRadius.circular(20),
             border: Border.all(
-              color: Theme.of(context).brightness == Brightness.dark
-                  ? Colors.grey.shade700
-                  : Colors.white,
-              width: 0.7,
+              color: Theme.of(context).brightness == Brightness.dark?
+              Color(0xFF3D3D3D)
+                  :Color(0xFFD9D9D9),
+              width: 0.3,
             ),
           ),
           child: Row(

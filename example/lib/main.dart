@@ -95,7 +95,7 @@ class _ChatScreenState extends State<ChatScreen> {
                       enableDoubleTap: true,
 
                       // itemTextColor: Colors.white, // menu item color,
-                      // dialogBackgroundColor: Colors.black,  // background color
+                      // dialogBackgroundColor: Color(0xFF13151A),  // background color
                       //   reactionAddIcon: "assets/reaction_chat/plus_icon_dark.png"  // now send image path for plus icon
 
                         itemTextColor: Colors.black,
