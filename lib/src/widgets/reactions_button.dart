@@ -24,12 +24,12 @@ class ReactionButton extends StatelessWidget {
       child: InkWell(
         onTap: () => onTap(reaction, index),
         child: Padding(
-          padding: const EdgeInsets.fromLTRB(4.0, 2.0, 4.0, 2.0),
+          padding: const EdgeInsets.fromLTRB(6.0, 2.0, 6.0, 2.0),
           child: Text(
             reaction,
             style: const TextStyle(
                 color: Colors.white,
-                fontSize: 22),
+                fontSize: 20),
           ),
         ),
       ),
@@ -45,10 +45,12 @@ class ReactionImageButton extends StatelessWidget {
     required this.reaction,
     required this.index,
     required this.onTap,
+     this.imagePath,
   });
 
   final String reaction;
   final int index;
+  final String? imagePath;
   final Function(String, int) onTap;
 
   @override
@@ -60,14 +62,12 @@ class ReactionImageButton extends StatelessWidget {
       child: InkWell(
         onTap: () => onTap(reaction, index),
         child: Padding(
-          padding: const EdgeInsets.fromLTRB(4.0, 4.0, 6.0, 4.0),
+          padding: const EdgeInsets.fromLTRB(6.0, 2.0, 6.0, 2.0),
           child: Center(
             child: Image.asset(
-              Theme.of(context).brightness == Brightness.dark?
-              'assets/reaction_chat/plus_icon_dark.png'
-              :"assets/reaction_chat/plus_icon.png",// path to your asset
-              width: 30,             // you can set custom size
-              height: 30,
+              imagePath??"assets/reaction_chat/plus_icon.png",// path to your asset
+              width: 27,             // you can set custom size
+              height: 27,
               fit: BoxFit.contain,
             )
           ),

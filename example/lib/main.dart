@@ -93,6 +93,15 @@ class _ChatScreenState extends State<ChatScreen> {
                       enableHapticFeedback: true,
                       maxReactionsToShow: 3,
                       enableDoubleTap: true,
+                      // itemTextColor: Colors.white,
+                      // dialogBackgroundColor: Colors.black,
+                      //   reactionAddIcon: "assets/reaction_chat/plus_icon_dark.png"
+
+                        itemTextColor: Colors.black,
+                      dialogBackgroundColor: Colors.white,
+                        reactionAddIcon: "assets/reaction_chat/plus_icon.png"
+
+
                     );
                     return ChatMessageWrapper(
                       messageId: message.id,

@@ -2,7 +2,7 @@ import 'package:flutter/widgets.dart';
 
 class MenuItem {
   final String label;
-  final IconData icon;
+  final String icon;
   final bool isDestructive;
 
   // contsructor

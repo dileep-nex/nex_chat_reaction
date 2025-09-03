@@ -8,10 +8,14 @@ class ReactionsRow extends StatelessWidget {
     required this.reactions,
     required this.alignment,
     required this.onReactionTap,
+    required this.dialogBackgroundColor,
+    this.reactionAddIcon
   });
 
   final List<String> reactions;
   final Alignment alignment;
+  final Color dialogBackgroundColor;
+  final String? reactionAddIcon;
   final Function(String, int) onReactionTap;
 
   @override
@@ -21,11 +25,9 @@ class ReactionsRow extends StatelessWidget {
       child: Material(
          color: Colors.transparent,
         child: Container(
-          padding: const EdgeInsets.all(5),
+          padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 8),
           decoration: BoxDecoration(
-             color: Theme.of(context).brightness == Brightness.dark
-                 ? const Color(0xFF000000)
-                 : const Color(0xFFFFFFFF),
+             color: dialogBackgroundColor,
             borderRadius: BorderRadius.circular(20),
             boxShadow: [
               BoxShadow(
@@ -41,6 +43,7 @@ class ReactionsRow extends StatelessWidget {
             children: [
               for (var i = 0; i < reactions.length; i++)
                 i == reactions.length-1 ? ReactionImageButton(
+                  imagePath: reactionAddIcon,
                   reaction: reactions[i],
                   index: i,
                   onTap: onReactionTap,

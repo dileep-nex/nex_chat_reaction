@@ -17,6 +17,8 @@ class ChatReactionsConfig {
   final EdgeInsets dialogPadding;
   final BorderRadius? dialogBorderRadius;
   final Color? dialogBackgroundColor;
+  final String? reactionAddIcon;
+  final Color? itemTextColor;
   final double dialogBlurSigma;
   final bool dismissOnTapOutside;
   final bool showContextMenu;
@@ -28,10 +30,10 @@ class ChatReactionsConfig {
   const ChatReactionsConfig({
     this.availableReactions = const ['👍', '❤️', '😂', '😮', '😢', '😠', '➕'],
     this.menuItems = const [
-      MenuItem(label: 'Reply', icon: Icons.reply),
-      MenuItem(label: 'Copy', icon: Icons.copy),
+      MenuItem(label: 'Reply', icon: "assets/reaction_chat/reply_item.png"),
+      MenuItem(label: 'Copy', icon: "assets/reaction_chat/copy_item.png"),
       MenuItem(
-          label: 'Delete', icon: Icons.delete_forever, isDestructive: true),
+          label: 'Delete', icon: "assets/reaction_chat/delete_item.png", isDestructive: true),
     ],
     this.animationDuration = const Duration(milliseconds: 300),
     this.dialogTransitionDuration = const Duration(milliseconds: 300),
@@ -45,6 +47,8 @@ class ChatReactionsConfig {
     this.dialogPadding = const EdgeInsets.all(20.0),
     this.dialogBorderRadius,
     this.dialogBackgroundColor,
+    this.reactionAddIcon,
+    this.itemTextColor,
     this.dialogBlurSigma = 5.0,
     this.dismissOnTapOutside = true,
     this.showContextMenu = true,
@@ -68,6 +72,8 @@ class ChatReactionsConfig {
     EdgeInsets? dialogPadding,
     BorderRadius? dialogBorderRadius,
     Color? dialogBackgroundColor,
+    String? reactionAddIcon,
+    Color? itemTextColor,
     Color? reactionBackgroundColor,
     double? dialogBlurSigma,
     bool? dismissOnTapOutside,
@@ -95,6 +101,8 @@ class ChatReactionsConfig {
       dialogBorderRadius: dialogBorderRadius ?? this.dialogBorderRadius,
       dialogBackgroundColor:
           dialogBackgroundColor ?? this.dialogBackgroundColor,
+      itemTextColor: itemTextColor ?? this.itemTextColor,
+      reactionAddIcon: reactionAddIcon ?? this.reactionAddIcon,
       dialogBlurSigma: dialogBlurSigma ?? this.dialogBlurSigma,
       dismissOnTapOutside: dismissOnTapOutside ?? this.dismissOnTapOutside,
       showContextMenu: showContextMenu ?? this.showContextMenu,

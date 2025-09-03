@@ -58,6 +58,8 @@ class ReactionsDialogWidget extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               ReactionsRow(
+                reactionAddIcon: config.reactionAddIcon,
+                dialogBackgroundColor: config.dialogBackgroundColor?? const Color(0xFFFFFFFF),
                 reactions: config.availableReactions,
                 alignment: alignment,
                 onReactionTap: (reaction, _) =>
@@ -72,6 +74,8 @@ class ReactionsDialogWidget extends StatelessWidget {
               if (config.showContextMenu) ...[
                 const SizedBox(height: 10),
                 ContextMenuWidget(
+                  dialogBackgroundColor: config.dialogBackgroundColor?? const Color(0xFFFFFFFF),
+                  itemTextColor: config.itemTextColor?? Colors.grey,
                   menuItems: config.menuItems,
                   alignment: alignment,
                   onMenuItemTap: (item, _) => _handleMenuItemTap(context, item),
@@ -99,12 +103,16 @@ class ContextMenuWidget extends StatelessWidget {
   final List<MenuItem> menuItems;
   final Alignment alignment;
   final double menuWidth;
+  final Color dialogBackgroundColor;
+  final Color itemTextColor;
   final Function(MenuItem, int) onMenuItemTap;
 
   const ContextMenuWidget({
     super.key,
     required this.menuItems,
     required this.onMenuItemTap,
+    required this.dialogBackgroundColor,
+    required this.itemTextColor,
     this.alignment = Alignment.centerRight,
     this.menuWidth = 0.45,
   });
@@ -116,9 +124,7 @@ class ContextMenuWidget extends StatelessWidget {
       child: Container(
         width: MediaQuery.of(context).size.width * menuWidth,
         decoration: BoxDecoration(
-          color: Theme.of(context).brightness == Brightness.dark
-              ? const Color(0xFF000000)
-              : const Color(0xFFFFFFFF),
+          color: dialogBackgroundColor,
           borderRadius: BorderRadius.circular(15),
           border: Border.all(
             color: Theme.of(context).brightness == Brightness.dark
@@ -147,27 +153,24 @@ class ContextMenuWidget extends StatelessWidget {
                             style: TextStyle(
                               color: item.isDestructive
                                   ? Colors.red
-                                  : Theme.of(context).brightness == Brightness.dark
-                                  ? Colors.white
-                                  : Colors.black,
+                                  : itemTextColor,
                               fontSize: 16,
                             ),
                           ),
-                          Icon(
+                          Image.asset(
                             item.icon,
+                            width: 20,
+                            height: 20,
                             color: item.isDestructive
                                 ? Colors.red
-                                : Theme.of(context).brightness == Brightness.dark
-                                ? Colors.white
-                                : Colors.black,
-                            size: 20,
+                                : itemTextColor
                           ),
                         ],
                       ),
                     ),
                   ),
                 ),
-                if (!isLast) const Divider(height: 1, thickness: 1,
+                if (!isLast) const Divider(height: 1, thickness: 0.6,
                   color: Colors.grey,
                 ), // Divider between buttons
               ],
