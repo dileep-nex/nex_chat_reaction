@@ -25,7 +25,7 @@ Add dependency to `pubspec.yaml`
 
 ```yaml
 dependencies:
-  flutter_chat_reactions: ^0.0.5
+  flutter_chat_reactions: ^0.0.6
 
   assets:
     - assets/reaction_chat/

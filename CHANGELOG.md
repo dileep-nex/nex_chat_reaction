@@ -15,3 +15,9 @@
 
 ## 0.0.5
 * TODO: popup callback added , open and close
+
+* ## 0.0.6
+* icon to image change,
+  background dynamic
+  reaction tile height increase,
+  divider  height decrease,
