@@ -93,9 +93,9 @@ class _ChatScreenState extends State<ChatScreen> {
                       enableHapticFeedback: true,
                       maxReactionsToShow: 3,
                       enableDoubleTap: true,
-                      // itemTextColor: Colors.white,
-                      // dialogBackgroundColor: Colors.black,
-                      //   reactionAddIcon: "assets/reaction_chat/plus_icon_dark.png"
+                      // itemTextColor: Colors.white, // menu item color,
+                      // dialogBackgroundColor: Colors.black,  // background color
+                      //   reactionAddIcon: "assets/reaction_chat/plus_icon_dark.png"  // now send image path for plus icon
 
                         itemTextColor: Colors.black,
                       dialogBackgroundColor: Colors.white,
