@@ -21,3 +21,6 @@
   background dynamic
   reaction tile height increase,
   divider  height decrease,
+
+* ## 0.0.7
+* reaction tile shadow effect managed and add border grey color,

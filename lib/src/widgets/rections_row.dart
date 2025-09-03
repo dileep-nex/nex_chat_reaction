@@ -29,14 +29,12 @@ class ReactionsRow extends StatelessWidget {
           decoration: BoxDecoration(
              color: dialogBackgroundColor,
             borderRadius: BorderRadius.circular(20),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.grey.shade500,
-                spreadRadius: 1,
-                blurRadius: 2,
-                offset: const Offset(0, 1),
-              ),
-            ],
+            border: Border.all(
+              color: Theme.of(context).brightness == Brightness.dark
+                  ? Colors.grey.shade700
+                  : Colors.white,
+              width: 0.7,
+            ),
           ),
           child: Row(
             mainAxisSize: MainAxisSize.min,

@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Chat Reactions Example',
       theme: ThemeData(
-        brightness: Brightness.dark,
+        brightness: Brightness.light,
         primarySwatch: Colors.blue,
         useMaterial3: true,
       ),
@@ -93,6 +93,7 @@ class _ChatScreenState extends State<ChatScreen> {
                       enableHapticFeedback: true,
                       maxReactionsToShow: 3,
                       enableDoubleTap: true,
+
                       // itemTextColor: Colors.white, // menu item color,
                       // dialogBackgroundColor: Colors.black,  // background color
                       //   reactionAddIcon: "assets/reaction_chat/plus_icon_dark.png"  // now send image path for plus icon

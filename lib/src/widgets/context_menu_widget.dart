@@ -130,7 +130,7 @@ class ContextMenuWidget extends StatelessWidget {
             color: Theme.of(context).brightness == Brightness.dark
                 ? Colors.grey.shade700
                 : Colors.white,
-            width: 1,
+            width: 0.7,
           ),
         ),
         child: Column(
