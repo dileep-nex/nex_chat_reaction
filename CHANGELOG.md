@@ -24,3 +24,6 @@
 
 * ## 0.0.7
 * reaction tile shadow effect managed and add border grey color,
+
+* ## 0.0.8
+* Border color and divider color changed.
