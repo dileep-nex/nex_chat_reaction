@@ -118,6 +118,9 @@ class ChatReactionsConfig {
 Widget _defaultEmojiPickerBuilder(
     BuildContext context, Function(String) onEmojiSelected) {
   return EmojiPicker(
+    config: Config(
+        height: 320,
+        bottomActionBarConfig: BottomActionBarConfig(enabled: false)),
     onEmojiSelected: (category, emoji) {
       onEmojiSelected(emoji.emoji);
     },
