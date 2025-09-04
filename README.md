@@ -25,16 +25,15 @@ Add dependency to `pubspec.yaml`
 
 ```yaml
 dependencies:
-  flutter_chat_reactions: ^0.0.8
+  flutter_chat_reactions: ^0.0.9
 
   assets:
-    - assets/reaction_chat/
+    - assets/
 ```
 
 ```nex_chat_reaction
      assets -- folder
-       reaction_chat -- folder
-          plus_icon.png -- image name
+
 ```
 
 In your dart file, import the library:

@@ -27,3 +27,7 @@
 
 * ## 0.0.8
 * Border color and divider color changed.
+
+* ## 0.0.9
+* Remove bottom site search bar,
+* Increase bottom sheet height.
