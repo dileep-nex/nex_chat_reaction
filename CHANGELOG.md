@@ -31,3 +31,9 @@
 * ## 0.0.9
 * Remove bottom site search bar,
 * Increase bottom sheet height.
+
+* ## 0.1.0
+  Manage Reaction message box, 
+* Added scroller on long message
+* Remove Growing Effect when scrolling
+* Dynamic Height and width of message box.
