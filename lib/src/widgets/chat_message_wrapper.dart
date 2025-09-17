@@ -17,7 +17,7 @@ class ChatMessageWrapper extends StatelessWidget {
   final Function(MenuItem)? onMenuItemTapped;
   final VoidCallback? onPopupOpened;
   final VoidCallback? onPopupClosed;
-  final VoidCallback? onPopupBeforeCallback;
+  final Future<void> Function()? onPopupBeforeCallback;
   final Alignment alignment;
 
   const ChatMessageWrapper({
@@ -100,14 +100,20 @@ class ChatMessageWrapper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onLongPress: () {
-        onPopupBeforeCallback?.call();
+      onLongPress: () async {
+        if (onPopupBeforeCallback != null) {
+          await onPopupBeforeCallback!();
+        }
+
         if (config.enableLongPress) {
           _showReactionsDialog(context);
         }
       },
-      onDoubleTap: () {
-        onPopupBeforeCallback?.call();
+      onDoubleTap: () async {
+        if (onPopupBeforeCallback != null) {
+          await onPopupBeforeCallback!();
+        }
+
         if (config.enableDoubleTap) {
           _showReactionsDialog(context);
         }
@@ -118,4 +124,5 @@ class ChatMessageWrapper extends StatelessWidget {
       ),
     );
   }
+
 }
