@@ -66,11 +66,17 @@ class ReactionsDialogWidget extends StatelessWidget {
                     _handleReactionTap(context, reaction),
               ),
               const SizedBox(height: 10),
+
               MessageBubble(
                 id: messageId,
                 messageWidget: messageWidget,
                 alignment: alignment,
+                maxHeight: config.heightMessageBox, // Customizable max height
+                maxWidth: config.widthMessageBox,
+                borderRadius: 12.0, // Customizable border radius
+                backgroundColor: Colors.transparent, // Customizable background
               ),
+
               if (config.showContextMenu) ...[
                 const SizedBox(height: 10),
                 ContextMenuWidget(

@@ -20,6 +20,8 @@ class ChatReactionsConfig {
   final String? reactionAddIcon;
   final Color? itemTextColor;
   final double dialogBlurSigma;
+  final double heightMessageBox;
+  final double widthMessageBox;
   final bool dismissOnTapOutside;
   final bool showContextMenu;
   final Widget Function(BuildContext, Function(String) onEmojiSelected)?
@@ -50,6 +52,8 @@ class ChatReactionsConfig {
     this.reactionAddIcon,
     this.itemTextColor,
     this.dialogBlurSigma = 5.0,
+    this.heightMessageBox = 400.0,
+    this.widthMessageBox = 275.0,
     this.dismissOnTapOutside = true,
     this.showContextMenu = true,
     this.emojiPickerBuilder = _defaultEmojiPickerBuilder,
@@ -76,6 +80,8 @@ class ChatReactionsConfig {
     Color? itemTextColor,
     Color? reactionBackgroundColor,
     double? dialogBlurSigma,
+    double? heightMessageBox,
+    double? widthMessageBox,
     bool? dismissOnTapOutside,
     bool? showContextMenu,
     Widget Function(BuildContext, Function(String) onEmojiSelected)?
@@ -104,6 +110,8 @@ class ChatReactionsConfig {
       itemTextColor: itemTextColor ?? this.itemTextColor,
       reactionAddIcon: reactionAddIcon ?? this.reactionAddIcon,
       dialogBlurSigma: dialogBlurSigma ?? this.dialogBlurSigma,
+      heightMessageBox: heightMessageBox ?? this.heightMessageBox,
+      widthMessageBox: widthMessageBox ?? this.widthMessageBox,
       dismissOnTapOutside: dismissOnTapOutside ?? this.dismissOnTapOutside,
       showContextMenu: showContextMenu ?? this.showContextMenu,
       emojiPickerBuilder: emojiPickerBuilder ?? this.emojiPickerBuilder,
