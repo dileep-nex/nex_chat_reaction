@@ -100,16 +100,18 @@ class ChatMessageWrapper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onLongPress:(){
+      onLongPress: () {
         onPopupBeforeCallback?.call();
-        config.enableLongPress ? () => _showReactionsDialog(context) : null;
-      }
-         ,
-      onDoubleTap: (){
+        if (config.enableLongPress) {
+          _showReactionsDialog(context);
+        }
+      },
+      onDoubleTap: () {
         onPopupBeforeCallback?.call();
-        config.enableDoubleTap ? () => _showReactionsDialog(context) : null;
-      }
-          ,
+        if (config.enableDoubleTap) {
+          _showReactionsDialog(context);
+        }
+      },
       child: Hero(
         tag: messageId,
         child: child,
