@@ -1,3 +1,5 @@
+import 'dart:nativewrappers/_internal/vm/lib/ffi_allocation_patch.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:nex_chat_reaction/src/controllers/reactions_controller.dart';
@@ -16,6 +18,7 @@ class ChatMessageWrapper extends StatelessWidget {
   final Function(MenuItem)? onMenuItemTapped;
   final VoidCallback? onPopupOpened;
   final VoidCallback? onPopupClosed;
+  final VoidCallback? onPopupBeforeCallback;
   final Alignment alignment;
 
   const ChatMessageWrapper({
@@ -29,7 +32,8 @@ class ChatMessageWrapper extends StatelessWidget {
     this.onMenuItemTapped,
     this.alignment = Alignment.centerRight,
     this.onPopupOpened,
-    this.onPopupClosed
+    this.onPopupClosed,
+    this.onPopupBeforeCallback
 
   });
 
@@ -97,10 +101,16 @@ class ChatMessageWrapper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onLongPress:
-          config.enableLongPress ? () => _showReactionsDialog(context) : null,
-      onDoubleTap:
-          config.enableDoubleTap ? () => _showReactionsDialog(context) : null,
+      onLongPress:(){
+        onPopupBeforeCallback?.call();
+        config.enableLongPress ? () => _showReactionsDialog(context) : null;
+      }
+         ,
+      onDoubleTap: (){
+        onPopupBeforeCallback?.call();
+        config.enableDoubleTap ? () => _showReactionsDialog(context) : null;
+      }
+          ,
       child: Hero(
         tag: messageId,
         child: child,
