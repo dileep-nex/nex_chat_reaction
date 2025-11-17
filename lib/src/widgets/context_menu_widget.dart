@@ -1,4 +1,5 @@
 import 'dart:ui';
+import 'package:emoji_picker_flutter/emoji_picker_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:nex_chat_reaction/src/controllers/reactions_controller.dart';
 import 'package:nex_chat_reaction/src/models/chat_reactions_config.dart';
@@ -95,8 +96,19 @@ class ReactionsDialogWidget extends StatelessWidget {
   }
 
   void _handleReactionTap(BuildContext context, String reaction) {
-    Navigator.of(context).pop();
-    onReactionTap(reaction);
+     try{
+       final pickerKey = GlobalKey<EmojiPickerState>();
+       Navigator.of(context).pop();
+       if(reaction != "➕"){
+         EmojiPickerUtils().addEmojiToRecentlyUsed(
+           key: pickerKey, // Storage key (default is 'recent')
+           emoji: Emoji(reaction,'' ),
+           config: Config(), // Use your config here
+         );
+       }
+       onReactionTap(reaction);
+     }
+         catch(e){}
   }
 
   void _handleMenuItemTap(BuildContext context, MenuItem item) {
