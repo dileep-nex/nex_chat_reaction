@@ -1,3 +1,9 @@
+
+## 0.1.1
+
+* TODO: recent emoji now working
+    In row , Emoji size increased.
+
 ## 0.0.1
 
 * TODO: Describe initial release.
