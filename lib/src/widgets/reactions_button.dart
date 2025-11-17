@@ -29,7 +29,7 @@ class ReactionButton extends StatelessWidget {
             reaction,
             style: const TextStyle(
                 color: Colors.white,
-                fontSize: 20),
+                fontSize: 24),
           ),
         ),
       ),
@@ -66,8 +66,8 @@ class ReactionImageButton extends StatelessWidget {
           child: Center(
             child: Image.asset(
               imagePath??"assets/reaction_chat/plus_icon.png",// path to your asset
-              width: 27,             // you can set custom size
-              height: 27,
+              width: 30,             // you can set custom size
+              height: 30,
               fit: BoxFit.contain,
             )
           ),
