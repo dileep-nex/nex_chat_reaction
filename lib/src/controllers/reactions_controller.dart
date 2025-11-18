@@ -61,8 +61,29 @@ class ReactionsController extends ChangeNotifier {
     }
   }
 
-  Future<List<RecentEmoji>> getRecentEmojis(){
-    return EmojiPickerUtils().getRecentEmojis();
+  Future<List<String>> getRecentEmojis({required List<String> defaultEmojis}) async {
+    List<RecentEmoji> recentEmojis = await EmojiPickerUtils().getRecentEmojis();
+    if (recentEmojis.isEmpty) {
+      return defaultEmojis;
+    }
+    List<String> updatedEmojis = List.from(defaultEmojis);
+    updatedEmojis.remove('➕');
+    for (var recentEmoji in recentEmojis.reversed) {
+      String emoji = recentEmoji.emoji.emoji;
+
+      if (updatedEmojis.contains(emoji)) {
+        updatedEmojis.remove(emoji);
+      }
+      // Add at the beginning
+      updatedEmojis.insert(0, emoji);
+      // Keep only first 10 emojis (excluding '➕')
+      if (updatedEmojis.length > 10) {
+        updatedEmojis = updatedEmojis.sublist(0, 10);
+      }
+    }
+    // Always add '➕' at the end
+    updatedEmojis.add('➕');
+    return updatedEmojis;
   }
 
   /// Removes a reaction with the given [emoji] from a [messageId].

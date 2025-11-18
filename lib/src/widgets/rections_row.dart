@@ -36,23 +36,35 @@ class ReactionsRow extends StatelessWidget {
               width: 0.3,
             ),
           ),
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              for (var i = 0; i < reactions.length; i++)
-                i == reactions.length-1 ? ReactionImageButton(
-                  imagePath: reactionAddIcon,
-                  reaction: reactions[i],
-                  index: i,
-                  onTap: onReactionTap,
-                ):
-                ReactionButton(
-                  reaction: reactions[i],
-                  index: i,
-                  onTap: onReactionTap,
+           child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Flexible(
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    for (var i = 0; i < (reactions.length >= 13 ? 13 : reactions.length); i++)
+                      if(i != reactions.length -1)
+                      ReactionButton(
+                        reaction: reactions[i],
+                        index: i,
+                        onTap: onReactionTap,
+                      ),
+                  ],
                 ),
-            ],
-          ),
+              ),
+            ),
+            // Static add button - always visible
+            ReactionImageButton(
+              imagePath: reactionAddIcon,
+              reaction: reactions[reactions.length - 1],
+              index: reactions.length - 1,
+              onTap: onReactionTap,
+            ),
+          ],
+        ),
         ),
       ),
     );

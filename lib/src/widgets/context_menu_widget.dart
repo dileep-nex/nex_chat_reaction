@@ -58,13 +58,20 @@ class ReactionsDialogWidget extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              ReactionsRow(
-                reactionAddIcon: config.reactionAddIcon,
-                dialogBackgroundColor: config.dialogBackgroundColor?? const Color(0xFFFFFFFF),
-                reactions: config.availableReactions,
-                alignment: alignment,
-                onReactionTap: (reaction, _) =>
-                    _handleReactionTap(context, reaction),
+              FutureBuilder<List<String>>(
+                future: controller.getRecentEmojis(defaultEmojis: config.availableReactions),
+                builder: (context, snapshot) {
+                  // Show default reactions while loading or if there's an error
+                  final reactions = snapshot.data ?? config.availableReactions;
+
+                  return ReactionsRow(
+                    reactionAddIcon: config.reactionAddIcon,
+                    dialogBackgroundColor: config.dialogBackgroundColor ?? const Color(0xFFFFFFFF),
+                    reactions: reactions,
+                    alignment: alignment,
+                    onReactionTap: (reaction, _) => _handleReactionTap(context, reaction),
+                  );
+                },
               ),
               const SizedBox(height: 10),
 
