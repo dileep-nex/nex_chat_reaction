@@ -1,3 +1,4 @@
+import 'package:emoji_picker_flutter/emoji_picker_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:nex_chat_reaction/nex_chat_reaction.dart';
 
@@ -58,6 +59,10 @@ class ReactionsController extends ChangeNotifier {
       _messageReactions[messageId] = reactions;
       notifyListeners();
     }
+  }
+
+  Future<List<RecentEmoji>> getRecentEmojis(){
+    return EmojiPickerUtils().getRecentEmojis();
   }
 
   /// Removes a reaction with the given [emoji] from a [messageId].

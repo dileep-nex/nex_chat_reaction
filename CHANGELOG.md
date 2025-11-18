@@ -1,3 +1,7 @@
+## 0.1.2
+
+* TODO: Get recent emoji callback add
+
 
 ## 0.1.1
 
