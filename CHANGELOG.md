@@ -1,3 +1,7 @@
+## 0.1.4
+
+* TODO: Fixed menu items popup width and make it dynamic
+
 ## 0.1.3
 
 * TODO: Get recent emoji upto 10

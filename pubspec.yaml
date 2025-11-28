@@ -1,6 +1,6 @@
 name: nex_chat_reaction
 description: "A Flutter package to easily add reactions to your chat messages. with update plus icon"
-version: 0.1.3
+version: 0.1.4
 homepage: https://github.com/dileep-nex/nex_chat_reaction.git
 repository: https://github.com/dileep-nex/nex_chat_reaction.git
 

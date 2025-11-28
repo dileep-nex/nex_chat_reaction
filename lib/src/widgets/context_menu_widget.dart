@@ -147,7 +147,7 @@ class ContextMenuWidget extends StatelessWidget {
     return Align(
       alignment: alignment,
       child: Container(
-        width: MediaQuery.of(context).size.width * menuWidth,
+         width: calculateMenuWidth(menuItems),
         decoration: BoxDecoration(
           color: dialogBackgroundColor,
           borderRadius: BorderRadius.circular(15),
@@ -205,4 +205,19 @@ class ContextMenuWidget extends StatelessWidget {
       ),
     );
   }
+
+
+  double calculateMenuWidth(List<MenuItem> items) {
+    double maxWidth = 0;
+    for (var item in items) {
+      final tp = TextPainter(
+        text: TextSpan(text: item.label, style: TextStyle(fontSize: 16)),
+        maxLines: 1,
+        textDirection: TextDirection.ltr,
+      )..layout();
+      if (tp.width > maxWidth) maxWidth = tp.width;
+    }
+    return maxWidth + 80;
+  }
+
 }
